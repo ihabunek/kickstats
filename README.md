@@ -7,7 +7,9 @@ This example tracks the [Wasteland 2](http://www.kickstarter.com/projects/inxile
 
 Files
 -----
+
 **fetch.php** - Loads the kickstarter page and saves relevant data to wasteland-2.dat. This file can be scheduled to run every hour e.g. using crontab.
+
 **index.php** - Loads the data from wasteland-2.dat and displays it in a chart.
 
 Credits
@@ -15,6 +17,7 @@ Credits
 The idea and the initial data set was taken from [Adam at ruinedkingdoms.com](http://ruinedkingdoms.com/wasteland2/). Adapted to use highcharts which are nicer and easier to use.
 
 This demo uses the following libraries:
+
 * [Highstock](http://www.highcharts.com/products/highstock) - A cool charting library. [[LICENSE](http://creativecommons.org/licenses/by-nc/3.0/)]
 * [jQuery](http://jquery.com/) - Required by Highstock. [[LICENSE](http://jquery.org/license/)]
 
