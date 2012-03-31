@@ -12,9 +12,7 @@ echo "Starting fetcher at: " . date('c', $time) . "\n";
 echo "Loading page from $url\n";
 $fp = fopen($url, 'r') or die("Unable to open file.");
 
-$page = "";
 $data = array();
-
 
 // Read line by line to avoid loading the whole page
 while (true) {
@@ -22,8 +20,6 @@ while (true) {
 	if ($buffer == false) 
 		break;
 		
-	$page .= $buffer;
-	
 	// Looking for two occurances of: <div class="num">...</div>
 	if (preg_match('/<div class="num"/', $buffer)) 
 	{
@@ -34,12 +30,6 @@ while (true) {
 }
 
 fclose($fp);
-
-// Save the partially downloaded page (may be needed for debug)
-$size = round(strlen($page) / 1024);
-$filename =  "data/$name-$time";
-echo "Saving page data ($size KB) to $filename\n";
-file_put_contents($filename, $page);
 
 // Check for errors
 if (count($data) != 2) 
@@ -59,6 +49,8 @@ $data = "[$microtime, $backers, $pledged],\n";
 
 // Save processed data
 echo "Saving data to $name.dat\n";
-file_put_contents("$name.dat", $data, FILE_APPEND);
+$x = file_put_contents(__DIR__ . "/$name.dat", $data, FILE_APPEND);
+var_dump($x);
+var_dump(errror_get_last());
 
 ?>

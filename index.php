@@ -55,11 +55,11 @@ $data = "[$data]";
 					range: 3*24*60*60*1000, // default zoom: 3 days
 				},
 				yAxis: [{
-					title: { text: 'Amount pledged (US$)' },
+					title: { text: 'Total pledged (US$)' },
 					height: 200,
 					lineWidth: 2
 				}, {
-					title: { text: 'Diff (US$)' },
+					title: { text: 'Hourly (US$)' },
 					top: 300,
 					height: 100,
 					offset: 0,
@@ -67,10 +67,10 @@ $data = "[$data]";
 				}],
 				
 				series : [{
-					name : 'Pledged',
+					name : 'Total',
 					data : pledgesData,
 				}, {
-					name : 'Diff',
+					name : 'Hourly',
 					data : diffData,
 					type: 'column',
 					yAxis: 1,
@@ -82,12 +82,10 @@ $data = "[$data]";
 <body>
 	<div id="container" style="height: 500px; width: 900px"></div>
 	
-	<p>Pledge statistics for Kickstarter project <a target="_blank" href="<?php echo $url; ?>">
-	<?php echo $name; ?></a></p>
-
-	<p>This is not at all an original project. The idea and data was taken from
-	<a target="_blank" href="http://ruinedkingdoms.com/wasteland2">Adam at ruinedkingdoms.com</a></p>
-	<p>Times are GMT.</p>
+	<p>Pledge statistics for the <a target="_blank" href="<?php echo $url; ?>"><?php echo $name; ?></a> kickstarter project by Brian Fargo.</p>
+	<p>Data since 17.03.2012. Updated hourly. All times are GMT.</p>
+	<p>The idea and initial data set was taken from <a target="_blank" href="http://ruinedkingdoms.com/wasteland2">Adam at ruinedkingdoms.com</a></p>
+	<p>Read more and grab the source code on <a target="_blank" href="https://github.com/ihabunek/kickstarter-stats">GitHub</a>.</p>
 	<p>Get the data: <a href="<?php echo $filename; ?>">here</a></p>
 </body>
 </html>
