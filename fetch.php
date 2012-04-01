@@ -49,8 +49,6 @@ $data = "[$microtime, $backers, $pledged],\n";
 
 // Save processed data
 echo "Saving data to $name.dat\n";
-$x = file_put_contents(__DIR__ . "/$name.dat", $data, FILE_APPEND);
-var_dump($x);
-var_dump(errror_get_last());
+file_put_contents(__DIR__ . "/$name.dat", $data, FILE_APPEND);
 
 ?>
