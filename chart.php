@@ -18,6 +18,10 @@ $url = $config[$id]['url'];
 
 // Load chart data
 $filename = "data/$id.dat";
+
+if (!file_exists("$base/$filename"))
+	die ("No data for project [$id]. Wait a little.");
+
 $json = file_get_contents("$base/$filename") 
 	or die ("Cannot load data from [$filename].");
 $json = "[$json]";
