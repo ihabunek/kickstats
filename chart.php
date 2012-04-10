@@ -26,6 +26,8 @@ $json = file_get_contents("$base/$filename")
 	or die ("Cannot load data from [$filename].");
 $json = "[$json]";
 
+$goals = isset($config[$id]['goals']) ? $config[$id]['goals'] : [];
+
 ?>
 <html>
 <head>
@@ -80,7 +82,18 @@ $json = "[$json]";
 				yAxis: [{
 					title: { text: 'Total pledged (US$)' },
 					height: 200,
-					lineWidth: 2
+					lineWidth: 2,
+					plotLines: [
+<?php foreach($goals as $value => $label) { ?>
+				{
+					value : <?php echo $value ?>,
+					color : 'green',
+					dashStyle : 'shortdash',
+					width : 2,
+					label : { text : '<?php echo $label ?>'	}
+				},
+<?php } ?>
+				]
 				}, {
 					title: { text: 'Hourly (US$)' },
 					top: 300,
@@ -88,7 +101,6 @@ $json = "[$json]";
 					offset: 0,
 					lineWidth: 2,
 				}],
-				
 				series : [{
 					name : 'Total',
 					data : pledgesData,
@@ -97,7 +109,7 @@ $json = "[$json]";
 					data : diffData,
 					type: 'column',
 					yAxis: 1,
-				}]
+				}],
 			});
 		});
 	</script>
