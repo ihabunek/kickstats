@@ -25,6 +25,10 @@ foreach($config as $id => $item)
 	if(!isset($item['name'])) die("Missing 'name' option for group '$id'.");
 	if(!isset($item['url'])) die("Missing 'url' option for group '$id'.");
 
+	// Skip those marked as finished
+	if(isset($item['finished']) && $item['finished']) 
+		continue;
+	
 	extract($item); // Creates $name, $url
 
 	// Load data from kickstarter url
