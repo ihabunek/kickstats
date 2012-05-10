@@ -30,11 +30,11 @@ Sample project configuration:
 
 The following options are available for each project:
 
-* [project-id] - A project ID, in this case "wasteland-2". Should not contain spaces, data will be saved to 'data/wasteland-2.dat'.
-* name - Project name, which will be dispayed in the GUI.
-* url - Path to the kickstarter page for the project.
-* goals - An array of funding targets which will be drawn on the chart. The array key is the amount required, and the value is the goal description.
-* finished - If set to 1, fetch.php will no longer fetch data for this project. 
+* **[project-id]** - A project ID, in this case "wasteland-2". Should not contain spaces, data will be saved to 'data/wasteland-2.dat'.
+* **name** - Project name, which will be dispayed in the GUI.
+* **url** - Path to the kickstarter page for the project.
+* **goals** - An array of funding targets which will be drawn on the chart. The array key is the amount required, and the value is the goal description.
+* **finished** - If set to 1, fetch.php will no longer fetch data for this project. 
 
 Credits
 -------
@@ -44,6 +44,7 @@ This demo uses the following libraries:
 
 * [Highstock](http://www.highcharts.com/products/highstock) - A cool charting library. [[LICENSE](http://creativecommons.org/licenses/by-nc/3.0/)]
 * [jQuery](http://jquery.com/) - Required by Highstock. [[LICENSE](http://jquery.org/license/)]
+* [Twitter bootstrap](http://twitter.github.com/bootstrap/) - CSS library for design-challenged programmers. [[LICENSE](http://www.apache.org/licenses/LICENSE-2.0)]
 
 License
 -------
