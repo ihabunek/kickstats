@@ -1,5 +1,5 @@
-Kickstarter statistics
-======================
+Kickstats
+=========
 
 Tracks and charts pledges for a kickstarter project.
 
@@ -8,9 +8,31 @@ This example tracks the [Wasteland 2](http://www.kickstarter.com/projects/inxile
 Files
 -----
 
-**fetch.php** - Loads the kickstarter page and saves relevant data to wasteland-2.dat. This file can be scheduled to run every hour e.g. using crontab.
+**fetch.php** - Loads the project data from kickstarter and saves it to the data dir. This file can be scheduled to run every hour e.g. using crontab.
 
 **index.php** - Loads the data from wasteland-2.dat and displays it in a chart.
+
+**kickstats.ini** - The configuration file, defines configured projects.
+
+Configuration
+-------------
+
+Sample project configuration:
+
+	[wasteland-2]
+	name = "Wasteland 2"
+	url = http://www.kickstarter.com/projects/inxile/wasteland-2/
+	goals[900000] = Project funded
+	goals[2100000] = Obsidian joins
+	finished = 1
+
+The following options are available for each project:
+
+* A project ID, in this case "wasteland-2". Should not contain spaces, data will be saved to 'data/wasteland-2.dat'.
+* name - Project name, which will be dispayed in the GUI.
+* url - Path to the kickstarter page for the project.
+* goals - An array of funding targets which will be drawn on the chart. The array key is the amount required, and the value is the goal description.
+* finished - If set to 1, fetch.php will no longer fetch data for this project. 
 
 Credits
 -------
