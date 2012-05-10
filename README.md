@@ -3,6 +3,8 @@ Kickstats
 
 Tracks and charts pledges for a kickstarter project.
 
+See a demo [here](http://bezdomni.net/kickstats/).
+
 Files
 -----
 

@@ -32,6 +32,7 @@ $goals = isset($config[$id]['goals']) ? $config[$id]['goals'] : [];
 <html>
 <head>
 	<title>Kickstarter pledges for <?php echo $name ?></title>
+	<link href="css/bootstrap.css" rel="stylesheet">
 	<style type="text/css">
 		.content { width: 1000px; margin: auto; }
 		p { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0 0 10px 0; }
@@ -77,7 +78,7 @@ $goals = isset($config[$id]['goals']) ? $config[$id]['goals'] : [];
 				},
 				xAxis: {
 					minRange: 24*60*60*1000, // max zoom: 1 day
-					range: 3*24*60*60*1000, // default zoom: 3 days
+				//	range: 3*24*60*60*1000, // default zoom: 3 days
 				},
 				yAxis: [{
 					title: { text: 'Total pledged (US$)' },
@@ -95,7 +96,7 @@ $goals = isset($config[$id]['goals']) ? $config[$id]['goals'] : [];
 <?php } ?>
 				]
 				}, {
-					title: { text: 'Hourly (US$)' },
+					title: { text: 'Diff (US$)' },
 					top: 300,
 					height: 100,
 					offset: 0,
@@ -105,7 +106,7 @@ $goals = isset($config[$id]['goals']) ? $config[$id]['goals'] : [];
 					name : 'Total',
 					data : pledgesData,
 				}, {
-					name : 'Hourly',
+					name : 'Diff',
 					data : diffData,
 					type: 'column',
 					yAxis: 1,
@@ -115,13 +116,13 @@ $goals = isset($config[$id]['goals']) ? $config[$id]['goals'] : [];
 	</script>
 </head>
 <body>
-	<div class="content">
-		<p><a href=".">&lt; Back to project list</a></p>
+	<div class="container">
 		<div id="container" style="height: 500px; width: 900px"></div>
 		
 		<p>Pledge statistics for kickstarter project <a target="_blank" href="<?php echo $url; ?>"><?php echo $name; ?></a>.</p>
 		<p>Data updated hourly. All times are GMT.</p>
 		<p>Get the data <a href="<?php echo "$filename"; ?>">here</a></p>
+		<p><a href=".">&lt; Back to project list</a></p>
 	</div>
 </body>
 </html>
