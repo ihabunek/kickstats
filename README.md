@@ -3,14 +3,14 @@ Kickstats
 
 Tracks and charts pledges for a kickstarter project.
 
-This example tracks the [Wasteland 2](http://www.kickstarter.com/projects/inxile/wasteland-2/) project by Brian Fargo. 
-
 Files
 -----
 
-**fetch.php** - Loads the project data from kickstarter and saves it to the data dir. This file can be scheduled to run every hour e.g. using crontab.
+**fetch.php** - Loads the project data from kickstarter and saves it to the data dir. This file can be scheduled to run every hour using crontab.
 
-**index.php** - Loads the data from wasteland-2.dat and displays it in a chart.
+**index.php** - Displays a list of configured projects.
+
+**chart.php** - Displays individual project data in a chart.
 
 **kickstats.ini** - The configuration file, defines configured projects.
 
@@ -28,7 +28,7 @@ Sample project configuration:
 
 The following options are available for each project:
 
-* A project ID, in this case "wasteland-2". Should not contain spaces, data will be saved to 'data/wasteland-2.dat'.
+* [project-id] - A project ID, in this case "wasteland-2". Should not contain spaces, data will be saved to 'data/wasteland-2.dat'.
 * name - Project name, which will be dispayed in the GUI.
 * url - Path to the kickstarter page for the project.
 * goals - An array of funding targets which will be drawn on the chart. The array key is the amount required, and the value is the goal description.
